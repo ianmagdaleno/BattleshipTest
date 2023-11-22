@@ -2,13 +2,10 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-/BattleshipTest/Library/
-/BattleshipTest/temp/
-/BattleshipTest/Logs/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+/Battleship Test/Library/
+/Battleship Test/temp/
+/Battleship Test/Logs/
+/Battleship Test/UserSettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
