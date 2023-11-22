@@ -24,8 +24,15 @@ public class PlayerController : MonoBehaviour
     private void MovePlayer()
     {
         float moveY = Input.GetAxisRaw("Vertical");
-        Vector2 moveDirection = transform.up * moveY;
-        localRigidbody.velocity = moveDirection * moveSpeed;
+        if(moveY > 0)
+        {
+            Vector2 moveDirection = transform.up * moveY;
+            localRigidbody.velocity = moveDirection * moveSpeed;
+        }
+        else
+        {
+            localRigidbody.velocity = Vector2.zero;
+        }
     }
 
     private void RotatePlayer()

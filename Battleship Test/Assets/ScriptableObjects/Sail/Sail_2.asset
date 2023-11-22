@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0b2eb5f19d93c40a829479c9fe7fc9, type: 3}
+  m_Name: Sail_2
+  m_EditorClassIdentifier: 
+  shipPart:
+  - {fileID: 21300000, guid: c678271fd744b9d4e818298889c40659, type: 3}
+  - {fileID: 21300000, guid: 2404e6eebebe2cc489a562f5267690c3, type: 3}
+  - {fileID: 21300000, guid: 02ef1032277df594bb038a1ce66add59, type: 3}
+  - {fileID: 21300000, guid: 67f5c0cec0b8760488c655bf9404d2b8, type: 3}
