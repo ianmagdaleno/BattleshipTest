@@ -5,7 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float lifeTime = 2f; 
+    [SerializeField] private float lifeTime = 2f;
+
+    //[SerializeField] private GameObject 
 
     private Rigidbody2D localRigidbody;
 
@@ -22,5 +24,13 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(lifeTime);
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("collider detected");
+        //particles
+
+
     }
 }
