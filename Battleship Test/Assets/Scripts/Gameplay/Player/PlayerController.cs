@@ -10,17 +10,28 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody2D localRigidbody;
 
+    [SerializeField] private Weapon singleWeapon;
+    [SerializeField] private Weapon multiWeaponLeft;
+    [SerializeField] private Weapon multiWeaponRight;
+
     private void Update()
     {
         MovePlayer();
         RotatePlayer();
 
+        if (Input.GetMouseButtonDown(2))
+        {
+            singleWeapon.Shoot();
+        }
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Attack !!!!");
+            multiWeaponLeft.Shoot();
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            multiWeaponRight.Shoot();
         }
     }
-
     private void MovePlayer()
     {
         float moveY = Input.GetAxisRaw("Vertical");
@@ -34,7 +45,6 @@ public class PlayerController : MonoBehaviour
             localRigidbody.velocity = Vector2.zero;
         }
     }
-
     private void RotatePlayer()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
