@@ -24,7 +24,7 @@ public class MenuManager : MonoBehaviour
     [Range(60, 180)]
     static float sessionTimer;
 
-    //static float 
+    static float spawnerTimer;
 
     private void Start()
     {
@@ -54,6 +54,7 @@ public class MenuManager : MonoBehaviour
         {
             currentPanel.SetActive(false);
         }
+        //fade in and fade out with delay
         panel.SetActive(true);
     }
     
@@ -67,6 +68,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        //fade in and fade out with delay
         SceneManager.LoadScene(sceneName);
     }
 
