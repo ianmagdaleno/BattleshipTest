@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameplayManager : MonoBehaviour
 {
     [SerializeField] private GameObject panelTutorial;
+    [SerializeField] private GameObject panelGameOver;
     [SerializeField] private Button buttonStart;
     [SerializeField] private TMP_Text textSessionTimer;
 
@@ -22,6 +23,8 @@ public class GameplayManager : MonoBehaviour
 
     void Start()
     {
+        panelGameOver.SetActive(false);
+
         buttonStart.onClick.RemoveAllListeners();
         buttonStart.onClick.AddListener(() => Initialize());
     }
@@ -42,15 +45,18 @@ public class GameplayManager : MonoBehaviour
         if(gameplayOn) 
         { 
             currentTime -= Time.deltaTime;
-            textSessionTimer.text = currentTime.ToString("F1");
+            textSessionTimer.text = $"{currentTime.ToString("F1")} '' ";
 
             if(currentTime <= 0)
             {
-                Debug.Log("finalizar partida");
-                gameplayOn = false;
-                //open painel
-                SceneManager.LoadScene("MainMenu");
+                GameOver();
             }
         }
+    }
+    public void GameOver()
+    {
+        gameplayOn = false;
+        Destroy(currentPlayerInGame);
+        panelGameOver.SetActive(true);
     }
 }

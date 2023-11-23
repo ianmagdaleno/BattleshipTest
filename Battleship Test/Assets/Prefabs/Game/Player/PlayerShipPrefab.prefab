@@ -377,7 +377,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &4860256887517393987
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -429,7 +429,8 @@ MonoBehaviour:
   rotateSpeed: 3
   localRigidbody: {fileID: 7805887073857098043}
   singleWeapon: {fileID: 0}
-  multiWeapon: {fileID: 0}
+  multiWeaponLeft: {fileID: 0}
+  multiWeaponRight: {fileID: 0}
 --- !u!114 &7871176795190918024
 MonoBehaviour:
   m_ObjectHideFlags: 0

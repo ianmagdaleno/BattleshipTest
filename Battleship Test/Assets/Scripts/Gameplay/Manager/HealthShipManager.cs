@@ -6,6 +6,8 @@ using TMPro;
 
 public class HealthShipManager : MonoBehaviour
 {
+    [SerializeField] private GameplayManager gameplayManager;
+
     [SerializeField] private Slider healthSlider;
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
@@ -34,9 +36,15 @@ public class HealthShipManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Game Over");
-            Destroy(transform.parent.gameObject);
-            //give points
+            if (this.gameObject.CompareTag("Player"))
+            {
+                gameplayManager.GameOver();
+            }
+            else
+            {
+                DataManager.AddCurrentScore(1);
+                Destroy(transform.parent.gameObject);
+            }
         }
     }
     public void UpdateStats()

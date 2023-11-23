@@ -55,6 +55,20 @@ public class ChangeTeamUI : MonoBehaviour
 
     public ShipStruct GetTeamChoice()
     {
+       SetRandomTimeToEnemy(indexCurrentSail);
        return allSails[indexCurrentSail];
+    }
+    public void SetRandomTimeToEnemy(int exeption)
+    {
+        int randomTeam = Random.Range(0, allSails.Length -1);
+        
+        if(randomTeam != exeption)
+        {
+            DataManager.SetEnemyCurrentTeam(allSails[randomTeam]);
+        }
+        else
+        {
+            SetRandomTimeToEnemy(exeption);
+        }
     }
 }

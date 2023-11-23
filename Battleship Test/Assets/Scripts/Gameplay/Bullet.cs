@@ -38,7 +38,6 @@ public class Bullet : MonoBehaviour
         GameObject currentExplosion = Instantiate(explosion,transform.position, transform.rotation);
         if (collision.GetComponent<HealthShipManager>() != null)
         {
-            Debug.Log(damage);
             collision.GetComponent<HealthShipManager>().TakeDamage(damage);
         }
         Destroy(currentExplosion, 0.3f);
