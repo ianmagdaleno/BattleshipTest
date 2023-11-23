@@ -48,6 +48,9 @@ TagManager:
   - name: Game
     uniqueID: 873004361
     locked: 0
+  - name: VFX
+    uniqueID: 4176376881
+    locked: 0
   - name: UI
     uniqueID: 2886700731
     locked: 0

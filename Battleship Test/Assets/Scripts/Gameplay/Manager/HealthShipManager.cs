@@ -19,21 +19,23 @@ public class HealthShipManager : MonoBehaviour
 
     private void Start()
     {
-        healthSlider.value = maxHealth;
+        healthSlider.maxValue = maxHealth;
         currentHealth = maxHealth;
         UpdateStats();
     }
-    public void takeDamage(float damage)
+    public void TakeDamage(float damage)
     {
-        if(currentHealth - damage > 0)
+        currentHealth -= damage;
+
+        if(currentHealth > 0)
         {
-            currentHealth -= damage;
             UpdateStats();
         }
         else
         {
             Debug.Log("Game Over");
-
+            Destroy(transform.parent.gameObject);
+            //give points
         }
     }
     public void UpdateStats()

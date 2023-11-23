@@ -7,16 +7,23 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime = 2f;
 
-    //[SerializeField] private GameObject 
+    [SerializeField] private float damage = 10f;
+    [SerializeField] private GameObject explosion;
 
     private Rigidbody2D localRigidbody;
+
 
     private void Awake()
     {
         localRigidbody = GetComponent<Rigidbody2D>();
     }
-    public void Initialize()
+    public void Initialize(float newDamage = 0f)
     {
+        if (newDamage > 0)
+        {
+            damage = newDamage;
+        }
+
         localRigidbody.velocity = transform.right * speed;
         StartCoroutine(DisableAfterDelay());
     }
@@ -28,9 +35,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collider detected");
-        //particles
-
-
+        GameObject currentExplosion = Instantiate(explosion,transform.position, transform.rotation);
+        if (collision.GetComponent<HealthShipManager>() != null)
+        {
+            Debug.Log(damage);
+            collision.GetComponent<HealthShipManager>().TakeDamage(damage);
+        }
+        Destroy(currentExplosion, 0.3f);
+        this.gameObject.SetActive(false);
     }
 }
