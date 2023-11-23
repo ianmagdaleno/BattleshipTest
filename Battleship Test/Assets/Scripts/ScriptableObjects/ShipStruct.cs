@@ -6,4 +6,5 @@ using UnityEngine;
 public class ShipStruct : ScriptableObject
 {
     public Sprite[] shipPart;
+    public Sprite PreviewImage;
 }

@@ -17,8 +17,9 @@ public class HealthShipManager : MonoBehaviour
     [SerializeField] private ShipStruct shipBodyPhases;
     [SerializeField] private ShipStruct shipSailPhases;
 
-    private void Start()
+    public void Initialize(ShipStruct newShipSail)
     {
+        shipSailPhases = newShipSail;
         healthSlider.maxValue = maxHealth;
         currentHealth = maxHealth;
         UpdateStats();

@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b0b2eb5f19d93c40a829479c9fe7fc9, type: 3}
-  m_Name: Sail_2
+  m_Name: Starter
   m_EditorClassIdentifier: 
   shipPart:
-  - {fileID: 21300000, guid: c678271fd744b9d4e818298889c40659, type: 3}
-  - {fileID: 21300000, guid: 2404e6eebebe2cc489a562f5267690c3, type: 3}
-  - {fileID: 21300000, guid: 02ef1032277df594bb038a1ce66add59, type: 3}
-  - {fileID: 21300000, guid: 67f5c0cec0b8760488c655bf9404d2b8, type: 3}
+  - {fileID: 21300000, guid: 349540c73bd968a468e980ddeb2ec53a, type: 3}
+  - {fileID: 21300000, guid: 288af647a98f1344982f65d19f795a6b, type: 3}
+  - {fileID: 21300000, guid: a458bd8e2db14ea4d8c2071f0d43c602, type: 3}
+  - {fileID: 21300000, guid: c32ff092ba3e8584f96057d93eb60b90, type: 3}
+  PreviewImage: {fileID: 21300000, guid: 92259b18060a75840a8a676362e3927b, type: 3}

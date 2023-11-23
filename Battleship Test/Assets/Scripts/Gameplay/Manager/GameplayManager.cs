@@ -1,18 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject panelTutorial;
+    [SerializeField] private Button buttonStart;
+    [SerializeField] private TMP_Text textSessionTimer;
+
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private ChangeTeamUI changeTeamObject;
+
+    private bool gameplayOn;
+    private float currentTime;
+
+    private PlayerComponentsManager playerComponentsManager;
+    private GameObject currentPlayerInGame;
+
     void Start()
     {
-        
+        buttonStart.onClick.RemoveAllListeners();
+        buttonStart.onClick.AddListener(() => Initialize());
     }
 
-    // Update is called once per frame
+    public void Initialize()
+    {
+        panelTutorial.SetActive(false);
+        currentTime = 60f; //tem que ser substituido
+        gameplayOn = true;
+
+        currentPlayerInGame =  Instantiate(playerPrefab);
+        playerComponentsManager = currentPlayerInGame.GetComponent<PlayerComponentsManager>();
+        playerComponentsManager.ChangeTeamSail(changeTeamObject.GetTeamChoice());
+    }
+
     void Update()
     {
-        
+        if(gameplayOn) 
+        { 
+            currentTime -= Time.deltaTime;
+            textSessionTimer.text = currentTime.ToString("F1");
+
+            if(currentTime <= 0)
+            {
+                Debug.Log("finalizar partida");
+                gameplayOn = false;
+                //open painel
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
     }
 }
