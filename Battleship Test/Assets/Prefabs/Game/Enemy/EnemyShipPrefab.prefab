@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6046495035175341320}
   - component: {fileID: 7232799371834852279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftCannonLoose (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,6 +85,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &523379118267268686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2995001038592930273}
+  m_Layer: 0
+  m_Name: Point_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2995001038592930273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523379118267268686}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.115, y: 0.032, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 856301691947845791}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &918762880039514108
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1989180242685691414}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -127,7 +158,7 @@ GameObject:
   - component: {fileID: 3876800063127793269}
   - component: {fileID: 1693713414012035534}
   - component: {fileID: 5342048987294713190}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,9 +216,40 @@ MonoBehaviour:
   - {fileID: 743731174130159562}
   ownColliders:
   - {fileID: 2060725992844765789}
-  fireRate: 2
   poolCount: 15
   bulletPrefab: {fileID: 445880367885633043, guid: 3face599416abee459331d27d2b8fdbc, type: 3}
+  fireRate: 2
+--- !u!1 &1426195960731864722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2968852404109138358}
+  m_Layer: 0
+  m_Name: Point_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2968852404109138358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426195960731864722}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.104, y: 0.372, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 856301691947845791}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1512180766734400740
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4319591949928162704}
   - component: {fileID: 2178524392092659700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftCannonLoose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7089194035962708419}
   - component: {fileID: 6259670180129038773}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftCannonLoose (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8571468428420828050}
   - component: {fileID: 7405679525024897489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightCannonLoose (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8134809228141521185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -485,7 +547,7 @@ GameObject:
   - component: {fileID: 2920605795001084541}
   - component: {fileID: 6314111472772183530}
   - component: {fileID: 9003038240585208758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,9 +605,9 @@ MonoBehaviour:
   - {fileID: 8134809228141521185}
   ownColliders:
   - {fileID: 2060725992844765789}
-  fireRate: 2
   poolCount: 15
   bulletPrefab: {fileID: 445880367885633043, guid: 3face599416abee459331d27d2b8fdbc, type: 3}
+  fireRate: 2
 --- !u!1 &2949274394179983162
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5490198940928326007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -587,7 +649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514693130920466772}
   - component: {fileID: 2085889688768613307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightCannonLoose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +736,7 @@ GameObject:
   - component: {fileID: 4728019254843748603}
   - component: {fileID: 7834195145781681082}
   - component: {fileID: 7332720571145237191}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FrontCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,9 +842,40 @@ MonoBehaviour:
   - {fileID: 620118410499382092}
   ownColliders:
   - {fileID: 2060725992844765789}
-  fireRate: 2
   poolCount: 15
   bulletPrefab: {fileID: 445880367885633043, guid: 3face599416abee459331d27d2b8fdbc, type: 3}
+  fireRate: 2
+--- !u!1 &4916313683721967160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8670932689045873202}
+  m_Layer: 0
+  m_Name: Point_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8670932689045873202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916313683721967160}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.104, y: -0.231, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 856301691947845791}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6020301272345370879
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8496808617699811606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -826,7 +919,7 @@ GameObject:
   - component: {fileID: 3728459681805586213}
   - component: {fileID: 2060725992844765789}
   - component: {fileID: 3663180405849548182}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyShipPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,12 +934,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6060251296483359874}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.8842163, y: 1.2392226, z: -0.025510147}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 937096212880824858}
+  - {fileID: 856301691947845791}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3728459681805586213
@@ -923,13 +1017,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c161191aeda1054e882e4d157895257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameplayManager: {fileID: 0}
   healthSlider: {fileID: 0}
   maxHealth: 100
-  currentHealth: 0
   shipBodySprite: {fileID: 4432403209464130092}
   shipSailSprite: {fileID: 1279771961480626172}
   shipBodyPhases: {fileID: 11400000, guid: c4ea504c296df6e4f95ad5439d0dd819, type: 2}
   shipSailPhases: {fileID: 11400000, guid: 15198f0203c5bad42a0a13a2723b2b99, type: 2}
+  destroyAnimationPosition:
+  - {fileID: 8670932689045873202}
+  - {fileID: 2995001038592930273}
+  - {fileID: 2968852404109138358}
+  fireAnimation: {fileID: 3507233476719773038, guid: 781a9f3f8eebddc4db12dfeb14223c4f, type: 3}
+  bigExplosionAnimation: {fileID: 2728903264591045004, guid: 6abf9a6294e7c3e40bc5703e56443f72, type: 3}
 --- !u!1 &6621601268844776646
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +1040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4247968738060201496}
   - component: {fileID: 1279771961480626172}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sailLarge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,7 +1123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 743731174130159562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1055,7 +1155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5761896507233014740}
   - component: {fileID: 1129104300560863}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: nest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,7 +1239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2667194397660568879}
   - component: {fileID: 8874200995794548501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightCannonLoose (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1223,7 +1323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 620118410499382092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1254,7 +1354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6377806969699804744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1286,7 +1386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937096212880824858}
   - component: {fileID: 4432403209464130092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1366,6 +1466,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8711285151893168288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 856301691947845791}
+  m_Layer: 0
+  m_Name: DestructionPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &856301691947845791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8711285151893168288}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.018, y: -0.013, z: -0.073451966}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8670932689045873202}
+  - {fileID: 2995001038592930273}
+  - {fileID: 2968852404109138358}
+  m_Father: {fileID: 693218348858164394}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8764697234894889938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6529467419912662322}
   - component: {fileID: 2048155193202816136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}

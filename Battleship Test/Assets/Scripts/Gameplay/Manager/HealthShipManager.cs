@@ -20,9 +20,10 @@ public class HealthShipManager : MonoBehaviour
     [SerializeField] private ShipStruct shipSailPhases;
 
     [Space(10), Header("Destroy Animations")]
-    [SerializeField] private SpriteRenderer[] destroyAnimationSpot;
+    [SerializeField] private Transform[] destroyAnimationPosition;
     [SerializeField] private GameObject fireAnimation;
     [SerializeField] private GameObject bigExplosionAnimation;
+    
 
     public void Initialize(ShipStruct newShipSail)
     {
@@ -37,10 +38,13 @@ public class HealthShipManager : MonoBehaviour
 
         if(currentHealth > 0)
         {
+
             UpdateStats();
         }
         else
         {
+            DestroyAnimation(bigExplosionAnimation);
+
             if (this.gameObject.CompareTag("Player"))
             {
                 gameplayManager.GameOver();
@@ -48,7 +52,7 @@ public class HealthShipManager : MonoBehaviour
             else
             {
                 DataManager.AddCurrentScore(1);
-                Destroy(transform.parent.gameObject);
+                Destroy(transform.parent.gameObject,0.4f);
             }
         }
     }
@@ -65,18 +69,38 @@ public class HealthShipManager : MonoBehaviour
         }
         else if (healthPercentage >= 0.5f)
         {
-            shipBodySprite.sprite = shipBodyPhases.shipPart[1];
-            shipSailSprite.sprite = shipSailPhases.shipPart[1];
+            if (shipBodySprite.sprite != shipBodyPhases.shipPart[1])
+            {
+                DestroyAnimation(fireAnimation);
+                shipBodySprite.sprite = shipBodyPhases.shipPart[1];
+                shipSailSprite.sprite = shipSailPhases.shipPart[1];
+            }
         }
         else if (healthPercentage >= 0.25f)
         {
-            shipBodySprite.sprite = shipBodyPhases.shipPart[2];
-            shipSailSprite.sprite = shipSailPhases.shipPart[2];
+            if (shipBodySprite.sprite != shipBodyPhases.shipPart[2])
+            {
+                DestroyAnimation(fireAnimation);
+                shipBodySprite.sprite = shipBodyPhases.shipPart[2];
+                shipSailSprite.sprite = shipSailPhases.shipPart[2];
+            }
         }
         else
         {
-            shipBodySprite.sprite = shipBodyPhases.shipPart[3];
-            shipSailSprite.sprite = shipSailPhases.shipPart[3];
+            if (shipBodySprite.sprite != shipBodyPhases.shipPart[3])
+            {
+                DestroyAnimation(fireAnimation);
+                shipBodySprite.sprite = shipBodyPhases.shipPart[3];
+                shipSailSprite.sprite = shipSailPhases.shipPart[3];
+            }
+        }
+    }
+    public void DestroyAnimation(GameObject animation)
+    {
+        foreach(Transform currentPosition in destroyAnimationPosition)
+        {
+            GameObject currentAnimation = Instantiate(animation, currentPosition);
+            Destroy(currentAnimation, 1f);
         }
     }
 }

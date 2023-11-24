@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3448583731325125239}
   - component: {fileID: 489174343572304429}
   - component: {fileID: 3806413509622899964}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BigExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
