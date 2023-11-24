@@ -8,16 +8,21 @@ public class HealthShipManager : MonoBehaviour
 {
     [SerializeField] private GameplayManager gameplayManager;
 
+    [Header("Ship stats")]
     [SerializeField] private Slider healthSlider;
     [SerializeField] private float maxHealth;
-    [SerializeField] private float currentHealth;
+    private float currentHealth;
 
-    [Header("ship state")]
+    [Space(10),Header("Ship state objects")]
     [SerializeField] private SpriteRenderer shipBodySprite;
     [SerializeField] private SpriteRenderer shipSailSprite;
-
     [SerializeField] private ShipStruct shipBodyPhases;
     [SerializeField] private ShipStruct shipSailPhases;
+
+    [Space(10), Header("Destroy Animations")]
+    [SerializeField] private SpriteRenderer[] destroyAnimationSpot;
+    [SerializeField] private GameObject fireAnimation;
+    [SerializeField] private GameObject bigExplosionAnimation;
 
     public void Initialize(ShipStruct newShipSail)
     {

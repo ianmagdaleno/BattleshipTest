@@ -6,34 +6,49 @@ using UnityEngine;
 [RequireComponent(typeof(ObjectPool))]
 public class Weapon : MonoBehaviour
 {
+    [Header("Weapon Attributes")]
     [SerializeField] private Transform[] turrentBarrels;
     [SerializeField] private Collider2D[] ownColliders;
-
-    [SerializeField] private float fireRate;
     [SerializeField] private int poolCount = 15;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float fireRate = 0.5f; // Tempo entre os disparos em segundos
 
-    private float delayToNextShoot;
-    private bool canShoot = true;
+    private float delayBetweenShoot;
+    private bool canShoot;
     private ObjectPool bulletPool;
 
-    private void Awake()
-    {
-        bulletPool = GetComponent<ObjectPool>();
-    }
     private void Start()
     {
-        bulletPool.Initialize(bulletPrefab, poolCount);
+        Initialize(fireRate);
     }
 
+    public void Initialize(float fireRate)
+    {
+        bulletPool = GetComponent<ObjectPool>();
+
+        bulletPool.Initialize(bulletPrefab, poolCount);
+        canShoot = true;
+        delayBetweenShoot = fireRate;
+    }
+
+    private void Update()
+    {
+        if (!canShoot)
+        {
+            delayBetweenShoot -= Time.deltaTime;
+
+            if (delayBetweenShoot <= 0)
+            {
+                canShoot = true;
+                delayBetweenShoot = fireRate;
+            }
+        }
+    }
     public void Shoot()
     {
-        if(canShoot)
+        if (canShoot)
         {
-            //canShoot = false;
-            //delayToNextShoot = fireRate;
-
-            foreach(var currentBarrel in turrentBarrels)
+            foreach (var currentBarrel in turrentBarrels)
             {
                 GameObject bullet = bulletPool.CreateObject();
                 bullet.transform.position = currentBarrel.position;
@@ -45,6 +60,13 @@ public class Weapon : MonoBehaviour
                     Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), collider);
                 }
             }
+
+            canShoot = false;
         }
+    }
+    public void Reload()
+    {
+        canShoot = false;
+        delayBetweenShoot = fireRate;
     }
 }

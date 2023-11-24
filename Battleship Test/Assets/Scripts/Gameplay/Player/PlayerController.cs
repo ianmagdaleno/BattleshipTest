@@ -10,16 +10,24 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody2D localRigidbody;
 
+    [SerializeField] private float timeBetweenSingleShoot;
+    [SerializeField] private float timeBetweenTripleShoot;
     [SerializeField] private Weapon singleWeapon;
     [SerializeField] private Weapon multiWeaponLeft;
     [SerializeField] private Weapon multiWeaponRight;
 
+    private void Start()
+    {
+        singleWeapon.Initialize(timeBetweenSingleShoot);
+        multiWeaponLeft.Initialize(timeBetweenTripleShoot);
+        multiWeaponRight.Initialize(timeBetweenTripleShoot);
+    }
     private void Update()
     {
         MovePlayer();
         RotatePlayer();
 
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.Space))
         {
             singleWeapon.Shoot();
         }

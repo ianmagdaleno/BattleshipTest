@@ -7,15 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
+    [Header("UI Components")]
     [SerializeField] private GameObject panelTutorial;
     [SerializeField] private GameObject panelGameOver;
     [SerializeField] private Button buttonStart;
     [SerializeField] private TMP_Text textSessionTimer;
-
-    [SerializeField] private Transform playerSpawnPosition;
-    [SerializeField] private GameObject playerPrefab;
     [SerializeField] private ChangeTeamUI changeTeamObject;
 
+    [Space(10), Header("In game objects")]
+    [SerializeField] private Transform playerSpawnPosition;
+    [SerializeField] private GameObject playerPrefab;
     [SerializeField] private SpawnEnemies spawnerEnemies; 
 
     private bool gameplayOn;
@@ -31,19 +32,17 @@ public class GameplayManager : MonoBehaviour
         buttonStart.onClick.RemoveAllListeners();
         buttonStart.onClick.AddListener(() => Initialize());
     }
-
     public void Initialize()
     {
         panelTutorial.SetActive(false);
         currentSessionGameTimer = DataManager.GetGameSessionTimer();
         gameplayOn = true;
-        spawnerEnemies.Initialize();
 
         currentPlayerInGame =  Instantiate(playerPrefab, playerSpawnPosition);
         playerComponentsManager = currentPlayerInGame.GetComponent<PlayerComponentsManager>();
         playerComponentsManager.ChangeTeamSail(changeTeamObject.GetTeamChoice());
+        spawnerEnemies.Initialize();
     }
-
     void Update()
     {
         if(gameplayOn) 

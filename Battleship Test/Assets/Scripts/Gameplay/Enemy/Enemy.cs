@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Enemy basic stats")]
+    [Header("Enemy basic Attributes")]
     [Range(1, 20)]
     [SerializeField] private float speed;
 
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     private int currentPathIndex;
     private List<Vector3> pathVectorList;
 
-    public void Start()
+    protected virtual void Start()
     {
         if (targetPlayer == null)
         {
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
         pathfinding = new Pathfinding(20, 12);
     }
 
-    public void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         RotateAim();
         HandleMovement();
@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         DrawPathToTarget(targetPlayer.position);
     }
 
-    public void RotateAim()
+    protected virtual void RotateAim()
     {
         if (targetPlayer != null)
         {
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
             localRigidbody.rotation = aimAngle;
         }
     }
-    public void HandleMovement()
+    protected virtual void HandleMovement()
     {
         if (pathVectorList != null)
         {
@@ -74,11 +74,11 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    public void ShipAction()
+    protected virtual void ShipAction()
     {
         
     }
-    public void StopMoving()
+    protected virtual void StopMoving()
     {
         pathVectorList = null;
     }

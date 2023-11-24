@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
+    [Header("Spawn Enemy Settings")]
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject[] allEnemiesPrefab;
     [SerializeField] private int enemiesPerWave;

@@ -208,6 +208,14 @@ PrefabInstance:
       propertyPath: multiWeaponRight
       value: 
       objectReference: {fileID: 8892637610290675990}
+    - target: {fileID: 2607737057456775769, guid: 976898f04ba852c4a90e6cc572b958c6, type: 3}
+      propertyPath: timeBetweenSingleShoot
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607737057456775769, guid: 976898f04ba852c4a90e6cc572b958c6, type: 3}
+      propertyPath: timeBetweenTripleShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2651859825225623819, guid: 976898f04ba852c4a90e6cc572b958c6, type: 3}
       propertyPath: m_SortingOrder
       value: 1

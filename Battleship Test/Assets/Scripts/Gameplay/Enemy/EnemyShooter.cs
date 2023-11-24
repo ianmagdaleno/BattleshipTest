@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class EnemyShooter : Enemy
 {
-    [SerializeField] private float rangeToShoot;
-    [SerializeField] private Weapon weapon;
+    [Space(10), Header("Specific Attributes")]
 
-    
-    
+    [SerializeField] private Weapon weapon;
+    [SerializeField] private float timeBetweenShoots;
+    protected override void Start()
+    {
+        base.Start();
+        weapon.Initialize(timeBetweenShoots);
+    }
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
+    protected override void ShipAction()
+    {
+        base.ShipAction();
+        weapon.Shoot();
+    }
 }
