@@ -12,6 +12,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private Button buttonStart;
     [SerializeField] private TMP_Text textSessionTimer;
 
+    [SerializeField] private Transform playerSpawnPosition;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private ChangeTeamUI changeTeamObject;
 
@@ -38,7 +39,7 @@ public class GameplayManager : MonoBehaviour
         gameplayOn = true;
         spawnerEnemies.Initialize();
 
-        currentPlayerInGame =  Instantiate(playerPrefab);
+        currentPlayerInGame =  Instantiate(playerPrefab, playerSpawnPosition);
         playerComponentsManager = currentPlayerInGame.GetComponent<PlayerComponentsManager>();
         playerComponentsManager.ChangeTeamSail(changeTeamObject.GetTeamChoice());
     }

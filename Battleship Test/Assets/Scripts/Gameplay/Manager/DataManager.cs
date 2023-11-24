@@ -13,14 +13,14 @@ public class DataManager : MonoBehaviour
 
     private static ShipStruct enemyCurrentTeam;
 
-    private static DataManager _instance;
+    public static DataManager Instance { get; private set;}
 
     private void Awake()
     {
-        if (_instance == null)
+        if (Instance == null)
         {
-            _instance = this;
-            DontDestroyOnLoad(_instance.gameObject);
+            Instance = this;
+            DontDestroyOnLoad(Instance.gameObject);
         }
         else
         {

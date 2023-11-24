@@ -8,7 +8,7 @@ public class EnemyShooter : Enemy
     [SerializeField] private Weapon weapon;
 
     private float distanceAtPlayer;
-    private void Update()
+    private void  FixedUpdate()
     {
         //if(distanceAtPlayer > rangeToShoot)
         //{
