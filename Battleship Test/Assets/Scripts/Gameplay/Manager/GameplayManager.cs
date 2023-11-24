@@ -15,8 +15,10 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private ChangeTeamUI changeTeamObject;
 
+    [SerializeField] private SpawnEnemies spawnerEnemies; 
+
     private bool gameplayOn;
-    private float currentTime;
+    private float currentSessionGameTimer;
 
     private PlayerComponentsManager playerComponentsManager;
     private GameObject currentPlayerInGame;
@@ -32,8 +34,9 @@ public class GameplayManager : MonoBehaviour
     public void Initialize()
     {
         panelTutorial.SetActive(false);
-        currentTime = 60f; //tem que ser substituido
+        currentSessionGameTimer = DataManager.GetGameSessionTimer();
         gameplayOn = true;
+        spawnerEnemies.Initialize();
 
         currentPlayerInGame =  Instantiate(playerPrefab);
         playerComponentsManager = currentPlayerInGame.GetComponent<PlayerComponentsManager>();
@@ -44,10 +47,10 @@ public class GameplayManager : MonoBehaviour
     {
         if(gameplayOn) 
         { 
-            currentTime -= Time.deltaTime;
-            textSessionTimer.text = $"{currentTime.ToString("F1")} '' ";
+            currentSessionGameTimer -= Time.deltaTime;
+            textSessionTimer.text = $"{currentSessionGameTimer.ToString("F1")} '' ";
 
-            if(currentTime <= 0)
+            if(currentSessionGameTimer <= 0)
             {
                 GameOver();
             }
@@ -56,6 +59,7 @@ public class GameplayManager : MonoBehaviour
     public void GameOver()
     {
         gameplayOn = false;
+        spawnerEnemies.gameplayOn = false;
         Destroy(currentPlayerInGame);
         panelGameOver.SetActive(true);
     }

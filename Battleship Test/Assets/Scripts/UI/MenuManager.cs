@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class MenuManager : MonoBehaviour
 {
 
@@ -20,14 +21,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider sliderSessionTimer;
     [SerializeField] private Slider sliderSpawnTimer;
 
+    [SerializeField] private string textToSliderGameTimer;
+    [SerializeField] private string textToSliderSpawnEnemyTimer;
 
-    [Range(60, 180)]
-    static float sessionTimer;
-
-    static float spawnerTimer;
+    private DataManager dataManager;
 
     private void Start()
     {
+        dataManager = FindAnyObjectByType<DataManager>();
         Initialize();
     }
     private void Initialize()
@@ -43,9 +44,17 @@ public class MenuManager : MonoBehaviour
         buttonSettings.onClick.AddListener(() => LoadPanel(settingsPanel));
         buttonBack.onClick.AddListener(() => LoadPanel(mainPanel));
 
-        //set current values and max values
-        //sliderSessionTimer.onValueChanged.AddListener(() => UpdateText(sliderSessionTimer));
-        //sliderSpawnTimer.onValueChanged.AddListener(() => UpdateText(sliderSpawnTimer));
+
+        sliderSessionTimer.value = DataManager.GetGameSessionTimer();
+        sliderSpawnTimer.value = DataManager.GetEnemySpawnTimer();
+
+        sliderSessionTimer.maxValue = 180;
+        sliderSessionTimer.minValue = 60;
+        sliderSpawnTimer.maxValue = 10;
+        sliderSpawnTimer.minValue = 1;
+
+        sliderSessionTimer.onValueChanged.AddListener(delegate { UpdateText(sliderSessionTimer);});
+        sliderSpawnTimer.onValueChanged.AddListener(delegate { UpdateText(sliderSpawnTimer);});
     }
 
     public void LoadPanel(GameObject panel)
@@ -57,13 +66,31 @@ public class MenuManager : MonoBehaviour
         //fade in and fade out with delay
         panel.SetActive(true);
     }
-    
+
     public void UpdateText(Slider sliderToUpdate)
     {
-        //if(sliderToUpdate == sliderSessionTimer)
-        //{
+        if (sliderToUpdate == sliderSessionTimer)
+        {
+            DataManager.SetGameSessionTimer((int)sliderToUpdate.value);
 
-        //}
+            TMP_Text currentText = sliderToUpdate.transform.GetChild(0).GetComponent<TMP_Text>();
+            if (currentText != null)
+            {
+                currentText.text = $"{textToSliderGameTimer} {sliderToUpdate.value.ToString("F1")} ''";
+                dataManager.SaveData();
+            }
+        }
+        else
+        {
+            DataManager.SetEnemySpawnTimer((int)sliderToUpdate.value);
+
+            TMP_Text currentText = sliderToUpdate.transform.GetChild(0).GetComponent<TMP_Text>();
+            if (currentText != null)
+            {
+                currentText.text = $"{textToSliderSpawnEnemyTimer} {sliderToUpdate.value.ToString("F1")} ''";
+                dataManager.SaveData();
+            }
+        }
     } 
 
     public void LoadScene(string sceneName)

@@ -5,36 +5,55 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    [SerializeField] private static int highscore;
-    [SerializeField] private static string currentTeam;
-    [SerializeField] private static int currentScore;
-    [SerializeField] private static int gameSessionTimer;
-    [SerializeField] private static int enemySpawnRateTimer;
+    private static int highscore;
+    private static string currentTeam;
+    private static int currentScore;
+    private static int gameSessionTimer;
+    private static int enemySpawnTimer;
 
-    [SerializeField] private static ShipStruct enemyCurrentTeam;
+    private static ShipStruct enemyCurrentTeam;
 
     private static DataManager _instance;
 
-    public static DataManager Instance
+    private void Awake()
     {
-        get
+        if (_instance == null)
         {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<DataManager>();
-
-                if (_instance == null)
-                {
-                    GameObject singletonObject = new GameObject("DataManager");
-                    _instance = singletonObject.AddComponent<DataManager>();
-                }
-
-                DontDestroyOnLoad(_instance.gameObject);
-            }
-
-            return _instance;
+            _instance = this;
+            DontDestroyOnLoad(_instance.gameObject);
         }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        LoadData();
     }
+    public void SaveData()
+    {
+        PlayerPrefs.SetInt("Highscore", highscore);
+        PlayerPrefs.SetString("CurrentTeam", currentTeam);
+        PlayerPrefs.SetInt("CurrentScore", currentScore);
+        PlayerPrefs.SetInt("GameSessionTimer", gameSessionTimer);
+        PlayerPrefs.SetInt("EnemySpawnTimer", enemySpawnTimer);
+
+        PlayerPrefs.Save();
+    }
+    private void LoadData()
+    {
+        highscore = PlayerPrefs.GetInt("Highscore", 0);
+        currentTeam = PlayerPrefs.GetString("CurrentTeam", "");
+        currentScore = PlayerPrefs.GetInt("CurrentScore", 0);
+        gameSessionTimer = PlayerPrefs.GetInt("GameSessionTimer", 0);
+        enemySpawnTimer = PlayerPrefs.GetInt("EnemySpawnTimer", 0);
+    }
+
+    public static void ClearSavedData()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
+
+    #region Get/Set Score
     public static int GetHighscore()
     {
         return highscore;
@@ -56,7 +75,9 @@ public class DataManager : MonoBehaviour
     {
         currentScore = score;
     }
+    #endregion
 
+    #region Get/Set Current Teams
     public static string GetPlayerCurrentTeam()
     {
         return currentTeam;
@@ -76,7 +97,9 @@ public class DataManager : MonoBehaviour
     {
         enemyCurrentTeam = team;
     }
+    #endregion
 
+    #region Get/Set Game Settings
     public static int GetGameSessionTimer()
     {
         return gameSessionTimer;
@@ -86,4 +109,15 @@ public class DataManager : MonoBehaviour
     {
         gameSessionTimer = timer;
     }
+    public static int GetEnemySpawnTimer()
+    {
+        return enemySpawnTimer;
+    }
+
+    public static void SetEnemySpawnTimer(int timer)
+    {
+        enemySpawnTimer = timer;
+    }
+
+    #endregion
 }
