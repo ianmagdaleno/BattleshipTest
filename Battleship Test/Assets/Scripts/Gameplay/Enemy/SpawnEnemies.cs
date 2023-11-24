@@ -20,10 +20,9 @@ public class SpawnEnemies : MonoBehaviour
     {
         if(gameplayOn)
         {
-            Debug.Log("wave spawned");
             foreach(Transform currentPoint in spawnPoints)
             {
-                for(int i = 0; i <= enemiesPerWave; i++)
+                for(int i = 0; i < enemiesPerWave; i++)
                 {
                     Instantiate(allEnemiesPrefab[Random.Range(0, allEnemiesPrefab.Length - 1)], currentPoint);
                 }

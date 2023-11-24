@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1122292605618691696}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3903487, y: -2.5631118, z: 0.09548755}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60,11 +60,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464a7e3c1ac7640429e3d4fc59ee333c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMovement: 4
-  damage: 10
-  maxHealth: 10
+  speed: 1.05
+  damage: 0
+  maxHealth: 50
   healthShipManager: {fileID: 260083570089730534}
   targetPlayer: {fileID: 0}
+  localRigidbody: {fileID: 212827901256207189}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 8
   rangeToShoot: 10
   weapon: {fileID: 0}
 --- !u!1001 &3551716723009274992
@@ -128,6 +132,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d350fa72de0344e45a019530edfd20c4, type: 3}
+--- !u!50 &212827901256207189 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3728459681805586213, guid: d350fa72de0344e45a019530edfd20c4, type: 3}
+  m_PrefabInstance: {fileID: 3551716723009274992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &260083570089730534 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3663180405849548182, guid: d350fa72de0344e45a019530edfd20c4, type: 3}
