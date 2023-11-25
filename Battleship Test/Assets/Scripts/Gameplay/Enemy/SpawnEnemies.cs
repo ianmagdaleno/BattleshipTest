@@ -38,5 +38,19 @@ public class SpawnEnemies : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            foreach(Transform currentPoint in spawnPoints)
+            {
+                if (currentPoint.childCount > 0)
+                {
+                    for (int i = currentPoint.childCount - 1; i >= 0; i--)
+                    {
+                        GameObject child = currentPoint.GetChild(i).gameObject;
+                        Destroy(child);
+                    }
+                }
+            }
+        }
     }
 }
