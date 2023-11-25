@@ -69,10 +69,16 @@ public class ObstacleBasic : MonoBehaviour
     }
     private void ToggleShipAlpha(SpriteRenderer[] shipAppearance)
     {
-        foreach (SpriteRenderer spriteRenderer in shipAppearance)
+        if(shipAppearance != null)
         {
-            float newAlpha = (spriteRenderer.color.a == 0.0f) ? 1.0f : 0.0f;
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, newAlpha);
+            foreach (SpriteRenderer spriteRenderer in shipAppearance)
+            {
+                if (spriteRenderer)
+                {
+                    float newAlpha = (spriteRenderer.color.a == 0.0f) ? 1.0f : 0.0f;
+                    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, newAlpha);
+                }
+            }
         }
     }
     private void ResetShipAlpha(SpriteRenderer[] shipAppearance)

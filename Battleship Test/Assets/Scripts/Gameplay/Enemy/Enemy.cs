@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     private Pathfinding pathfinding;
     private int currentPathIndex;
     private List<Vector3> pathVectorList;
-
+    private bool isDebug = true;  
     protected virtual void Start()
     {
         if (targetPlayer == null)
@@ -42,10 +42,12 @@ public class Enemy : MonoBehaviour
             RotateAim();
             HandleMovement();
             SetTargetPosition(targetPlayer.position);
-            DrawPathToTarget(targetPlayer.position);
+            if (isDebug)
+            {
+                DrawPathToTarget(targetPlayer.position);
+            }
         }
     }
-
     protected virtual void RotateAim()
     {
         if (targetPlayer != null)

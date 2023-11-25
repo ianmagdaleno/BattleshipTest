@@ -30,7 +30,7 @@ public class PathNode
     {
         Vector3 worldPosition = grid.GetWorldPosition(x, y);
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(worldPosition, .3f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(worldPosition, 0.3f);
         foreach (Collider2D collider in colliders)
         {
             if (collider.CompareTag("Collider"))
@@ -39,6 +39,8 @@ public class PathNode
                 break; 
             }
         }
+        Debug.DrawLine(worldPosition + Vector3.left * 0.3f, worldPosition + Vector3.right * 0.3f, Color.red);
+        Debug.DrawLine(worldPosition + Vector3.up * 0.3f, worldPosition + Vector3.down * 0.3f, Color.red);
     }
 
     public void CalculateFCost()

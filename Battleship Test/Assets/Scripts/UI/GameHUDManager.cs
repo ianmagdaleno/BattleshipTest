@@ -6,26 +6,28 @@ using UnityEngine.UI;
 
 public class GameHUDManager : MonoBehaviour
 {
+    [Header("Manager")]
     [SerializeField] private GameplayManager gameplayManager;
     [SerializeField] private ScreenLoaderFade fadeManager;
 
-    [Header("UI Components")]
+    [Space(10),Header("UI GameObjects")]
     [SerializeField] private GameObject panelTutorial;
     [SerializeField] private GameObject panelGameOver;
-    [SerializeField] private Button buttonStart;
-    [SerializeField] private TMP_Text textSessionTimer;
-
-    [SerializeField] TMP_Text textScoreInGame;
-    [SerializeField] string textLabelScoreInGame;
-
-    [SerializeField] TMP_Text textEndScore;
-    [SerializeField] string textLabelEndScore;
-
-    [SerializeField] Button buttonPlayAgain;
-    [SerializeField] Button buttonMainMenu;
-
-    [SerializeField] GameObject prefabRankItem;
+    [SerializeField] private GameObject prefabRankItem;
     [SerializeField] Transform contentRank;
+
+    [Space(10), Header("UI Buttons")]
+    [SerializeField] private Button buttonPlayAgain;
+    [SerializeField] private Button buttonMainMenu;
+    [SerializeField] private Button buttonStart;
+
+    [Space(10), Header("UI Texts")]
+    [SerializeField] private TMP_Text textSessionTimer;
+    [SerializeField] private TMP_Text textScoreInGame;
+    [SerializeField] private TMP_Text textEndScore;
+  
+    [SerializeField] private string textLabelEndScore;
+    [SerializeField] private string textLabelScoreInGame;
 
     private bool gameOn;
     private float currentGameTimeToEnd;
@@ -68,10 +70,18 @@ public class GameHUDManager : MonoBehaviour
     }
     public void UpdateRank()
     {
+        if(contentRank.childCount > 0)
+        {
+            for (int i = contentRank.childCount - 1; i >= 0; i--)
+            {
+                GameObject child = contentRank.GetChild(i).gameObject;
+                Destroy(child);
+            }
+        }
         foreach (int score in DataManager.HighScores)
         {
             TMP_Text newScore = Instantiate(prefabRankItem, contentRank).GetComponentInChildren<TMP_Text>();
-            newScore.text = score.ToString();
+            newScore.text = $"{score} Points";
         }
     }
     public void UpdateScore()
