@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameHUDManager : MonoBehaviour
 {
     [SerializeField] private GameplayManager gameplayManager;
+    [SerializeField] private ScreenLoaderFade fadeManager;
 
     [Header("UI Components")]
     [SerializeField] private GameObject panelTutorial;
@@ -35,8 +35,8 @@ public class GameHUDManager : MonoBehaviour
 
         buttonStart.onClick.AddListener(() => gameplayManager.Initialize());
         buttonStart.onClick.AddListener(() => panelTutorial.SetActive(false));
-        buttonPlayAgain.onClick.AddListener(() => LoadScene("Game"));
-        buttonMainMenu.onClick.AddListener(() => LoadScene("MainMenu"));
+        buttonPlayAgain.onClick.AddListener(() => fadeManager.TransitionNextScreen("Game"));
+        buttonMainMenu.onClick.AddListener(() => fadeManager.TransitionNextScreen("MainMenu"));
     }
     public void Initialize()
     {
@@ -61,10 +61,6 @@ public class GameHUDManager : MonoBehaviour
     {
         panelGameOver.SetActive(true);
         UpdateScore();
-    }
-    private void LoadScene(string nameScene)
-    {
-        SceneManager.LoadScene(nameScene);
     }
     public void UpdateScore()
     {

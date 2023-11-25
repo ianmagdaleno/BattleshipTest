@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 public class MenuManager : MonoBehaviour
 {
 
     [SerializeField] private List<GameObject> allPanels;
+    [SerializeField] private ScreenLoaderFade fadeManager;
 
     [Header("Main menu")]
     [SerializeField] private GameObject mainPanel;
@@ -102,7 +102,6 @@ public class MenuManager : MonoBehaviour
     }
     public void LoadScene(string sceneName)
     {
-        //fade in and fade out with delay
-        SceneManager.LoadScene(sceneName);
+        fadeManager.TransitionNextScreen(sceneName);
     }
 }
