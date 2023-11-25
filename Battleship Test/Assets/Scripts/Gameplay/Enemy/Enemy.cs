@@ -74,6 +74,11 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    protected Transform GetPlayer()
+    {
+        return targetPlayer;
+    }
     protected virtual void ShipAction()
     {
         
