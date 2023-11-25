@@ -32,13 +32,16 @@ public class EnemyChaster : Enemy
     protected override void ShipAction()
     {
         base.ShipAction();
-        selfExplosion();
+        StartCoroutine(selfExplosion());
     }
-    public void selfExplosion()
+    IEnumerator selfExplosion()
     {
         HealthShipManager playerHealth = playerTarget.gameObject.GetComponent<HealthShipManager>();
+        Instantiate(bigExplosionAnimation, transform);
+
+        yield return new WaitForSeconds(0.3f);
+
         playerHealth.TakeDamage(damage);
-        GameObject explosionAnimation = Instantiate(bigExplosionAnimation, transform);
         Destroy(this.transform.parent.gameObject);
     }
 }

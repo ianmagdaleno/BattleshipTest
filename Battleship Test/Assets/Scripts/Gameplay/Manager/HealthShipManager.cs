@@ -31,7 +31,8 @@ public class HealthShipManager : MonoBehaviour
         shipSailPhases = newShipSail;
         healthSlider.maxValue = maxHealth;
         currentHealth = maxHealth;
-        UpdateStats();
+        UpdateStats(); 
+        healthSlider.gameObject.SetActive(false);
     }
     public void TakeDamage(float damage)
     {
@@ -39,7 +40,9 @@ public class HealthShipManager : MonoBehaviour
 
         if(currentHealth > 0)
         {
-
+            if (!healthSlider.gameObject.activeSelf){
+                healthSlider.gameObject.SetActive(true);
+            }
             UpdateStats();
         }
         else

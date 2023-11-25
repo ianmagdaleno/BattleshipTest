@@ -11,15 +11,12 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Collider2D[] ownColliders;
     [SerializeField] private int poolCount = 15;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float fireRate = 0.5f;
+    [SerializeField] private float fireRate;
 
     private float delayBetweenShoot;
     private bool canShoot;
     private ObjectPool bulletPool;
-    private void Start()
-    {
-        Initialize(fireRate);
-    }
+
     public void Initialize(float fireRate)
     {
         bulletPool = GetComponent<ObjectPool>();
@@ -27,6 +24,7 @@ public class Weapon : MonoBehaviour
         bulletPool.Initialize(bulletPrefab, poolCount);
         canShoot = true;
         delayBetweenShoot = fireRate;
+        this.fireRate = fireRate;
     }
     private void Update()
     {
@@ -59,10 +57,5 @@ public class Weapon : MonoBehaviour
             }
             canShoot = false;
         }
-    }
-    public void Reload()
-    {
-        canShoot = false;
-        delayBetweenShoot = fireRate;
     }
 }

@@ -427,6 +427,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3663180405849548182, guid: d350fa72de0344e45a019530edfd20c4, type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663180405849548182, guid: d350fa72de0344e45a019530edfd20c4, type: 3}
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 2626980452980680263}
@@ -489,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b4a35369b989741972f497580da855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 2.5
   damage: 15
   rangeToAct: 0
   healthShipManager: {fileID: 260083570089730534}

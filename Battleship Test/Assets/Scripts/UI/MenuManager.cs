@@ -55,8 +55,8 @@ public class MenuManager : MonoBehaviour
         sliderSpawnTimer.maxValue = 10;
         sliderSpawnTimer.minValue = 1;
 
-        UpdateText(sliderSessionTimer);
-        UpdateText(sliderSpawnTimer);
+        LoadDataSlider(sliderSessionTimer);
+        LoadDataSlider(sliderSpawnTimer);
         sliderSessionTimer.onValueChanged.AddListener(delegate { UpdateText(sliderSessionTimer);});
         sliderSpawnTimer.onValueChanged.AddListener(delegate { UpdateText(sliderSpawnTimer);});
     }
@@ -71,6 +71,17 @@ public class MenuManager : MonoBehaviour
         panel.SetActive(true);
     }
 
+    public void LoadDataSlider(Slider sliderToUpdate)
+    {
+        if (sliderToUpdate == sliderSessionTimer)
+        {
+            sliderToUpdate.value = DataManager.GetGameSessionTimer();
+        }
+        else
+        {
+            sliderToUpdate.value = DataManager.GetEnemySpawnTimer();
+        }
+    }
     public void UpdateText(Slider sliderToUpdate)
     {
         if (sliderToUpdate == sliderSessionTimer)
@@ -81,6 +92,7 @@ public class MenuManager : MonoBehaviour
             if (currentText != null)
             {
                 currentText.text = $"{textToSliderGameTimer} {sliderToUpdate.value.ToString("F1")} ''";
+                
                 dataManager.SaveData();
             }
         }

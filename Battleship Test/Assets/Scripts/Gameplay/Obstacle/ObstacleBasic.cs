@@ -85,7 +85,10 @@ public class ObstacleBasic : MonoBehaviour
     {
         foreach (SpriteRenderer spriteRenderer in shipAppearance)
         {
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1.0f);
+            if (spriteRenderer)
+            {
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1.0f);
+            }
         }
     }
 }

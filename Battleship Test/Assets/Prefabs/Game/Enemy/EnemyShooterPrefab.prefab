@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3663180405849548182, guid: d350fa72de0344e45a019530edfd20c4, type: 3}
       propertyPath: maxHealth
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3663180405849548182, guid: d350fa72de0344e45a019530edfd20c4, type: 3}
       propertyPath: healthSlider
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464a7e3c1ac7640429e3d4fc59ee333c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.5
   damage: 10
   rangeToAct: 0.5
   healthShipManager: {fileID: 260083570089730534}
@@ -178,7 +178,7 @@ MonoBehaviour:
   bodyTransform: {fileID: 4095168307545571546}
   weapon: {fileID: 6091458283255101111}
   timeBetweenShoots: 0.5
-  RangeToAttackInMovement: 3.5
+  RangeToAttackInMovement: 3
 --- !u!1001 &5583995205475576632
 PrefabInstance:
   m_ObjectHideFlags: 0
