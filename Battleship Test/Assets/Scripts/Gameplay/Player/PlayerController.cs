@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [Range(5, 20)]
     [SerializeField] private float damageTripleShoot;
     [SerializeField] private Rigidbody2D localRigidbody;
+    [SerializeField] private SpriteRenderer[] allShipComponents;
 
     [Header("Weapons Attributes and Components")]
     [SerializeField] private float timeBetweenSingleShoot;
@@ -64,6 +65,14 @@ public class PlayerController : MonoBehaviour
         Vector2 aimDirection = mousePosition - localRigidbody.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         localRigidbody.rotation = aimAngle;
+    }
+    public SpriteRenderer[] GetShipAppearence()
+    {
+        return allShipComponents;
+    }
+    public void ChangeShipSpeed(float newSpeed)
+    {
+        moveSpeed += newSpeed;
     }
 }
 

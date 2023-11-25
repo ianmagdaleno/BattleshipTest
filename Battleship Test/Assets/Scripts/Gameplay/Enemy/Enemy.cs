@@ -76,7 +76,6 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
     protected Transform GetPlayer()
     {
         return targetPlayer;

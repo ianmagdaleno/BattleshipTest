@@ -18,6 +18,7 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private Button buttonBack;
+    [SerializeField] private Button buttonQuitGame;
     [SerializeField] private Slider sliderSessionTimer;
     [SerializeField] private Slider sliderSpawnTimer;
 
@@ -39,11 +40,12 @@ public class MenuManager : MonoBehaviour
         buttonPlay.onClick.RemoveAllListeners();
         buttonSettings.onClick.RemoveAllListeners();
         buttonBack.onClick.RemoveAllListeners();
+        buttonQuitGame.onClick.RemoveAllListeners();
 
         buttonPlay.onClick.AddListener(() => LoadScene("Game"));
         buttonSettings.onClick.AddListener(() => LoadPanel(settingsPanel));
         buttonBack.onClick.AddListener(() => LoadPanel(mainPanel));
-
+        buttonQuitGame.onClick.AddListener(() => QuitApplication());
 
         sliderSessionTimer.value = DataManager.GetGameSessionTimer();
         sliderSpawnTimer.value = DataManager.GetEnemySpawnTimer();
@@ -53,6 +55,8 @@ public class MenuManager : MonoBehaviour
         sliderSpawnTimer.maxValue = 10;
         sliderSpawnTimer.minValue = 1;
 
+        UpdateText(sliderSessionTimer);
+        UpdateText(sliderSpawnTimer);
         sliderSessionTimer.onValueChanged.AddListener(delegate { UpdateText(sliderSessionTimer);});
         sliderSpawnTimer.onValueChanged.AddListener(delegate { UpdateText(sliderSpawnTimer);});
     }
@@ -91,8 +95,11 @@ public class MenuManager : MonoBehaviour
                 dataManager.SaveData();
             }
         }
-    } 
-
+    }
+    public void QuitApplication()
+    {
+        Application.Quit();
+    }
     public void LoadScene(string sceneName)
     {
         //fade in and fade out with delay

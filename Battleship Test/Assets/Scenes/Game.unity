@@ -7961,6 +7961,7 @@ GameObject:
   - component: {fileID: 2083196911}
   - component: {fileID: 2083196910}
   - component: {fileID: 2083196907}
+  - component: {fileID: 2083196912}
   m_Layer: 0
   m_Name: TilemapObstacle
   m_TagString: Untagged
@@ -8298,6 +8299,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &2083196912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083196905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0934f6dcf9ccb8e48b6add63dc78ca99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToSlowdownEffect: 0.3
+  durationSlowdownEffect: 0.8
+  differenceSpeedEffect: 0.5
+  tagComponentEffect: {fileID: 1151907239757253664, guid: 343288aeff9b3734fa582432e3ce5628, type: 3}
 --- !u!1001 &2102775049
 PrefabInstance:
   m_ObjectHideFlags: 0
