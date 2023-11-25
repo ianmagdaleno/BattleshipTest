@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
     [Header("Player Attributes and Components")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
+    [Range(5,20)]
+    [SerializeField] private float damageSingleShoot;
+    [Range(5, 20)]
+    [SerializeField] private float damageTripleShoot;
     [SerializeField] private Rigidbody2D localRigidbody;
 
     [Header("Weapons Attributes and Components")]
@@ -30,15 +34,15 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.Space))
         {
-            singleWeapon.Shoot();
+            singleWeapon.Shoot(damageSingleShoot);
         }
         if (Input.GetMouseButtonDown(0))
         {
-            multiWeaponLeft.Shoot();
+            multiWeaponLeft.Shoot(damageTripleShoot);
         }
         if (Input.GetMouseButtonDown(1))
         {
-            multiWeaponRight.Shoot();
+            multiWeaponRight.Shoot(damageTripleShoot);
         }
     }
     private void MovePlayer()

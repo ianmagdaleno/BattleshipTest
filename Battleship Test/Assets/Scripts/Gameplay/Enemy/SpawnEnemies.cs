@@ -25,7 +25,16 @@ public class SpawnEnemies : MonoBehaviour
             {
                 for(int i = 0; i < enemiesPerWave; i++)
                 {
-                    Instantiate(allEnemiesPrefab[Random.Range(0, allEnemiesPrefab.Length - 1)], currentPoint);
+                    int randomIndex = Random.Range(1, 100);
+                    if(randomIndex % 2 == 0)
+                    {
+                        randomIndex = 0;
+                    }
+                    else
+                    {
+                        randomIndex = 1;
+                    }
+                    Instantiate(allEnemiesPrefab[randomIndex], currentPoint);
                 }
             }
         }

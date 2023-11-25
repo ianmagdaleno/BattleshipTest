@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Collider2D[] ownColliders;
     [SerializeField] private int poolCount = 15;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float fireRate = 0.5f; // Tempo entre os disparos em segundos
+    [SerializeField] private float fireRate = 0.5f;
 
     private float delayBetweenShoot;
     private bool canShoot;
@@ -41,7 +41,7 @@ public class Weapon : MonoBehaviour
             }
         }
     }
-    public void Shoot()
+    public void Shoot(float damage)
     {
         if (canShoot)
         {
@@ -50,14 +50,13 @@ public class Weapon : MonoBehaviour
                 GameObject bullet = bulletPool.CreateObject();
                 bullet.transform.position = currentBarrel.position;
                 bullet.transform.localRotation = currentBarrel.rotation;
-                bullet.GetComponent<Bullet>().Initialize();
+                bullet.GetComponent<Bullet>().Initialize(damage);
 
                 foreach (var collider in ownColliders)
                 {
                     Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), collider);
                 }
             }
-
             canShoot = false;
         }
     }

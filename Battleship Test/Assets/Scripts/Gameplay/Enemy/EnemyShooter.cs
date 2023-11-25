@@ -34,6 +34,6 @@ public class EnemyShooter : Enemy
     protected override void ShipAction()
     {
         base.ShipAction();
-        weapon.Shoot();
+        weapon.Shoot(damage);
     }
 }

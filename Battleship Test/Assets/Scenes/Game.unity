@@ -2482,6 +2482,7 @@ MonoBehaviour:
   - {fileID: 1204855829}
   allEnemiesPrefab:
   - {fileID: 1122292605618691696, guid: 9e46871ed80eb064fb135d208833d803, type: 3}
+  - {fileID: 1122292605618691696, guid: 6572ebe46e6b4f24b91e2da5b4aeb3ff, type: 3}
   enemiesPerWave: 1
   parentEnemy: {fileID: 2021968213}
   gameplayOn: 0
@@ -3109,7 +3110,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 80
   m_ChildAlignment: 1
-  m_Spacing: 0
+  m_Spacing: 20
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -8457,7 +8458,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 249.631, y: 161.9877}
+  m_SizeDelta: {x: 249.631, y: 81.2471}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116429792
 MonoBehaviour:
@@ -8479,7 +8480,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME OVER
+  m_text: 'Your Score:
+
+    0000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de50f0b7a682ad345981ef519b345a40, type: 2}
   m_sharedMaterial: {fileID: -8643795309671615497, guid: de50f0b7a682ad345981ef519b345a40, type: 2}
@@ -8506,8 +8509,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8518,7 +8521,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 35
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

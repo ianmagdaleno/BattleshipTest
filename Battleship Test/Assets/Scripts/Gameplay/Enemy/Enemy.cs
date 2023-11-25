@@ -9,11 +9,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float speed;
 
     [Range(1, 20)]
-    [SerializeField] private int damage;
+    [SerializeField] protected int damage;
 
     [Range(0.3f, 5f)]
     [SerializeField] private float rangeToAct;
-    [SerializeField] private float maxHealth;
 
     [Space(10), Header("Enemy basic Components")]
     [SerializeField] private HealthShipManager healthShipManager;

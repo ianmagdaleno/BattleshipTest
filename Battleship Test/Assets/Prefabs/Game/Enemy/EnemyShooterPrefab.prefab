@@ -96,6 +96,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3663180405849548182, guid: d350fa72de0344e45a019530edfd20c4, type: 3}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663180405849548182, guid: d350fa72de0344e45a019530edfd20c4, type: 3}
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 2626980452980680263}
@@ -169,7 +173,6 @@ MonoBehaviour:
   speed: 2
   damage: 10
   rangeToAct: 0.5
-  maxHealth: 40
   healthShipManager: {fileID: 260083570089730534}
   localRigidbody: {fileID: 212827901256207189}
   bodyTransform: {fileID: 4095168307545571546}
