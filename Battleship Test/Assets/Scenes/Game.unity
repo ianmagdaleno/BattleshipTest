@@ -9365,7 +9365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToSlowdownEffect: 0.3
   durationSlowdownEffect: 0.8
-  differenceSpeedEffect: 0.5
+  differenceSpeedEffect: 3
   tagComponentEffect: {fileID: 1151907239757253664, guid: 343288aeff9b3734fa582432e3ce5628, type: 3}
 --- !u!1001 &2102775049
 PrefabInstance:

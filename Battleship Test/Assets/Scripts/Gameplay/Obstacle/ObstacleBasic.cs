@@ -75,8 +75,8 @@ public class ObstacleBasic : MonoBehaviour
             {
                 if (spriteRenderer)
                 {
-                    float newAlpha = (spriteRenderer.color.a == 0.0f) ? 1.0f : 0.0f;
-                    spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, newAlpha);
+                    float newAlpha = (spriteRenderer.color.r == 0.0f) ? 1.0f : 0.0f;
+                    spriteRenderer.color = new Color( newAlpha, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a);
                 }
             }
         }
