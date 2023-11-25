@@ -5,11 +5,12 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Attributes and Components")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
-
     [SerializeField] private Rigidbody2D localRigidbody;
 
+    [Header("Weapons Attributes and Components")]
     [SerializeField] private float timeBetweenSingleShoot;
     [SerializeField] private float timeBetweenTripleShoot;
     [SerializeField] private Weapon singleWeapon;

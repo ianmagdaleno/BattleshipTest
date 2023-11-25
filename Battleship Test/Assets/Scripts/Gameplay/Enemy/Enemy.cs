@@ -38,10 +38,13 @@ public class Enemy : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        RotateAim();
-        HandleMovement();
-        SetTargetPosition(targetPlayer.position);
-        DrawPathToTarget(targetPlayer.position);
+        if(targetPlayer != null)
+        {
+            RotateAim();
+            HandleMovement();
+            SetTargetPosition(targetPlayer.position);
+            DrawPathToTarget(targetPlayer.position);
+        }
     }
 
     protected virtual void RotateAim()

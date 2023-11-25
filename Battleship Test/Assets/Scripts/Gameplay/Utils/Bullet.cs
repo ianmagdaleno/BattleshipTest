@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [Header("Bullet Attributes")]
+    
+    [Range(.5f, 2f)]
     [SerializeField] private float lifeTime = 2f;
-
-    [SerializeField] private float damage = 10f;
+    
+    [SerializeField] private float speed;
     [SerializeField] private GameObject explosion;
 
+    private float damage = 10f;
     private Rigidbody2D localRigidbody;
-
 
     private void Awake()
     {
@@ -32,7 +34,6 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(lifeTime);
         gameObject.SetActive(false);
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject currentExplosion = Instantiate(explosion,transform.position, transform.rotation);

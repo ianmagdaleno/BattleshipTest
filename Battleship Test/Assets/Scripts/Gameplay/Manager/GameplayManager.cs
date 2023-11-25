@@ -7,12 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
-    [Header("UI Components")]
-    [SerializeField] private GameObject panelTutorial;
-    [SerializeField] private GameObject panelGameOver;
-    [SerializeField] private Button buttonStart;
-    [SerializeField] private TMP_Text textSessionTimer;
     [SerializeField] private ChangeTeamUI changeTeamObject;
+    [SerializeField] private GameHUDManager uiManager;
 
     [Space(10), Header("In game objects")]
     [SerializeField] private Transform playerSpawnPosition;
@@ -20,47 +16,26 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private SpawnEnemies spawnerEnemies; 
 
     private bool gameplayOn;
-    private float currentSessionGameTimer;
-
-    private PlayerComponentsManager playerComponentsManager;
+    private ShipTeamManager playerComponentsManager;
     private GameObject currentPlayerInGame;
-
-    void Start()
-    {
-        panelGameOver.SetActive(false);
-
-        buttonStart.onClick.RemoveAllListeners();
-        buttonStart.onClick.AddListener(() => Initialize());
-    }
     public void Initialize()
     {
-        panelTutorial.SetActive(false);
-        currentSessionGameTimer = DataManager.GetGameSessionTimer();
         gameplayOn = true;
-
+        uiManager.Initialize();
         currentPlayerInGame =  Instantiate(playerPrefab, playerSpawnPosition);
-        playerComponentsManager = currentPlayerInGame.GetComponent<PlayerComponentsManager>();
+        playerComponentsManager = currentPlayerInGame.GetComponent<ShipTeamManager>();
         playerComponentsManager.ChangeTeamSail(changeTeamObject.GetTeamChoice());
         spawnerEnemies.Initialize();
-    }
-    void Update()
-    {
-        if(gameplayOn) 
-        { 
-            currentSessionGameTimer -= Time.deltaTime;
-            textSessionTimer.text = $"{currentSessionGameTimer.ToString("F1")} '' ";
-
-            if(currentSessionGameTimer <= 0)
-            {
-                GameOver();
-            }
-        }
     }
     public void GameOver()
     {
         gameplayOn = false;
         spawnerEnemies.gameplayOn = false;
-        Destroy(currentPlayerInGame);
-        panelGameOver.SetActive(true);
+        Destroy(currentPlayerInGame, 0.4f);
+        uiManager.UpdateGameState(gameplayOn);
+    }
+    public bool GetGameStatus()
+    {
+        return gameplayOn;
     }
 }

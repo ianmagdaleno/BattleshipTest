@@ -2,17 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyChaster : MonoBehaviour
+public class EnemyChaster : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Space(10), Header("Specific Attributes")]
 
-    // Update is called once per frame
-    void Update()
+    private Transform playerTarget;
+    protected override void Start()
     {
+        base.Start();
+        playerTarget = GetPlayer();
+    }
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        if (playerTarget != null)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, playerTarget.position);
+
+            //if (distanceToPlayer <= RangeToAttackInMovement)
+            //{
+            //    ShipAction();
+            //}
+        }
+    }
+    protected override void ShipAction()
+    {
+        base.ShipAction();
         
     }
 }

@@ -98,5 +98,4 @@ public class MenuManager : MonoBehaviour
         //fade in and fade out with delay
         SceneManager.LoadScene(sceneName);
     }
-
 }

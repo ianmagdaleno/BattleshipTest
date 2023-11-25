@@ -6,7 +6,7 @@ using TMPro;
 
 public class HealthShipManager : MonoBehaviour
 {
-    [SerializeField] private GameplayManager gameplayManager;
+    private GameplayManager gameplayManager;
 
     [Header("Ship stats")]
     [SerializeField] private Slider healthSlider;
@@ -27,6 +27,7 @@ public class HealthShipManager : MonoBehaviour
 
     public void Initialize(ShipStruct newShipSail)
     {
+        gameplayManager= FindFirstObjectByType<GameplayManager>();  
         shipSailPhases = newShipSail;
         healthSlider.maxValue = maxHealth;
         currentHealth = maxHealth;

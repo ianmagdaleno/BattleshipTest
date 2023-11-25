@@ -16,12 +16,10 @@ public class Weapon : MonoBehaviour
     private float delayBetweenShoot;
     private bool canShoot;
     private ObjectPool bulletPool;
-
     private void Start()
     {
         Initialize(fireRate);
     }
-
     public void Initialize(float fireRate)
     {
         bulletPool = GetComponent<ObjectPool>();
@@ -30,7 +28,6 @@ public class Weapon : MonoBehaviour
         canShoot = true;
         delayBetweenShoot = fireRate;
     }
-
     private void Update()
     {
         if (!canShoot)
