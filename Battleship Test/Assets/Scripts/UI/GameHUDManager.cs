@@ -24,6 +24,9 @@ public class GameHUDManager : MonoBehaviour
     [SerializeField] Button buttonPlayAgain;
     [SerializeField] Button buttonMainMenu;
 
+    [SerializeField] GameObject prefabRankItem;
+    [SerializeField] Transform contentRank;
+
     private bool gameOn;
     private float currentGameTimeToEnd;
     private void Start()
@@ -61,6 +64,15 @@ public class GameHUDManager : MonoBehaviour
     {
         panelGameOver.SetActive(true);
         UpdateScore();
+        UpdateRank();
+    }
+    public void UpdateRank()
+    {
+        foreach (int score in DataManager.HighScores)
+        {
+            TMP_Text newScore = Instantiate(prefabRankItem, contentRank).GetComponentInChildren<TMP_Text>();
+            newScore.text = score.ToString();
+        }
     }
     public void UpdateScore()
     {

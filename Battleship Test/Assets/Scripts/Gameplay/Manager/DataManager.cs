@@ -53,12 +53,37 @@ public class DataManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public static void UpdateHighScore(int currentScore)
+    {
+        List<int> highScores = HighScores;
+        highScores.Add(currentScore);
+        highScores.Sort((a, b) => b.CompareTo(a));
+        highScores.RemoveAt(highScores.Count - 1);
+
+        for (int i = 0; i < highScores.Count; i++)
+        {
+            PlayerPrefs.SetInt("HighScore" + i, highScores[i]);
+        }
+    }
+
     #region Get/Set Score
+
+    public static List<int> HighScores
+    {
+        get
+        {
+            List<int> scores = new List<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                scores.Add(PlayerPrefs.GetInt("HighScore" + i, 0));
+            }
+            return scores;
+        }
+    }
     public static int GetHighscore()
     {
         return highscore;
     }
-
     public static void SetHighscore(int score)
     {
         highscore = score;

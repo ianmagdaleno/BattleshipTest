@@ -37,6 +37,7 @@ public class GameplayManager : MonoBehaviour
         gameplayOn = false;
         spawnerEnemies.gameplayOn = false;
         Destroy(currentPlayerInGame, 0.4f);
+        DataManager.UpdateHighScore(DataManager.GetScore());
         uiManager.UpdateGameState(gameplayOn);
     }
     public bool GetGameStatus()
