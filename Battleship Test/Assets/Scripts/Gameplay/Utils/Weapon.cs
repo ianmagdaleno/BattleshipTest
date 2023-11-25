@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(ObjectPool))]
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private AudioSource shootSound;
+
     [Header("Weapon Attributes")]
     [SerializeField] private Transform[] turrentBarrels;
     [SerializeField] private Collider2D[] ownColliders;
@@ -49,6 +51,9 @@ public class Weapon : MonoBehaviour
                 bullet.transform.position = currentBarrel.position;
                 bullet.transform.localRotation = currentBarrel.rotation;
                 bullet.GetComponent<Bullet>().Initialize(damage);
+
+                AudioSource currentSound = Instantiate(shootSound);
+                Destroy(currentSound, 1f);
 
                 foreach (var collider in ownColliders)
                 {

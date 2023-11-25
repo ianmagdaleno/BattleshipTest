@@ -19,13 +19,17 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private Button buttonBack;
     [SerializeField] private Button buttonQuitGame;
+    [SerializeField] private Button buttonSound;
     [SerializeField] private Slider sliderSessionTimer;
     [SerializeField] private Slider sliderSpawnTimer;
 
     [SerializeField] private string textToSliderGameTimer;
     [SerializeField] private string textToSliderSpawnEnemyTimer;
+    [SerializeField] private AudioSource clickSound;
+    [SerializeField] private Sprite[] buttonSoundVariant;
 
     private DataManager dataManager;
+    private bool soundEnabled = true;
 
     private void Start()
     {
@@ -41,11 +45,18 @@ public class MenuManager : MonoBehaviour
         buttonSettings.onClick.RemoveAllListeners();
         buttonBack.onClick.RemoveAllListeners();
         buttonQuitGame.onClick.RemoveAllListeners();
+        buttonSound.onClick.RemoveAllListeners();
 
         buttonPlay.onClick.AddListener(() => LoadScene("Game"));
         buttonSettings.onClick.AddListener(() => LoadPanel(settingsPanel));
         buttonBack.onClick.AddListener(() => LoadPanel(mainPanel));
         buttonQuitGame.onClick.AddListener(() => QuitApplication());
+        buttonSound.onClick.AddListener(() => ChangeSoundState());
+
+        buttonPlay.onClick.AddListener(() => AudioSource.Instantiate(clickSound));
+        buttonSettings.onClick.AddListener(() => AudioSource.Instantiate(clickSound));
+        buttonBack.onClick.AddListener(() => AudioSource.Instantiate(clickSound));
+        buttonQuitGame.onClick.AddListener(() => AudioSource.Instantiate(clickSound));
 
         sliderSessionTimer.value = DataManager.GetGameSessionTimer();
         sliderSpawnTimer.value = DataManager.GetEnemySpawnTimer();
@@ -60,17 +71,23 @@ public class MenuManager : MonoBehaviour
         sliderSessionTimer.onValueChanged.AddListener(delegate { UpdateText(sliderSessionTimer);});
         sliderSpawnTimer.onValueChanged.AddListener(delegate { UpdateText(sliderSpawnTimer);});
     }
-
+    public void ChangeSoundState()
+    {
+        soundEnabled = !soundEnabled;
+        AudioListener.volume = soundEnabled ? 1 : 0;
+        if (soundEnabled) 
+            buttonSound.image.sprite = buttonSoundVariant[0];
+        else
+            buttonSound.image.sprite = buttonSoundVariant[1];
+    }
     public void LoadPanel(GameObject panel)
     {
         foreach(GameObject currentPanel in allPanels)
         {
             currentPanel.SetActive(false);
         }
-        //fade in and fade out with delay
         panel.SetActive(true);
     }
-
     public void LoadDataSlider(Slider sliderToUpdate)
     {
         if (sliderToUpdate == sliderSessionTimer)
@@ -81,6 +98,8 @@ public class MenuManager : MonoBehaviour
         {
             sliderToUpdate.value = DataManager.GetEnemySpawnTimer();
         }
+
+        UpdateText(sliderToUpdate);
     }
     public void UpdateText(Slider sliderToUpdate)
     {

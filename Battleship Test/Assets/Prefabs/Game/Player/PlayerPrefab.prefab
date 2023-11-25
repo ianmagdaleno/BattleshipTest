@@ -192,6 +192,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1569777132297280376, guid: 976898f04ba852c4a90e6cc572b958c6, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 1733190490737984036, guid: b3c6fdf5e81b7c84d997c60d8644f84f, type: 3}
     - target: {fileID: 2195362751282982629, guid: 976898f04ba852c4a90e6cc572b958c6, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -200,6 +204,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2529621286567890344, guid: 976898f04ba852c4a90e6cc572b958c6, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 1733190490737984036, guid: b3c6fdf5e81b7c84d997c60d8644f84f, type: 3}
     - target: {fileID: 2607737057456775769, guid: 976898f04ba852c4a90e6cc572b958c6, type: 3}
       propertyPath: singleWeapon
       value: 
@@ -340,6 +348,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4190947167096810713, guid: 976898f04ba852c4a90e6cc572b958c6, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 1733190490737984036, guid: b3c6fdf5e81b7c84d997c60d8644f84f, type: 3}
     - target: {fileID: 4290279017452477865, guid: 976898f04ba852c4a90e6cc572b958c6, type: 3}
       propertyPath: m_SortingOrder
       value: 1

@@ -12,6 +12,7 @@ public class ChangeTeamUI : MonoBehaviour
 
     [SerializeField] private Button buttonNext;
     [SerializeField] private Button buttonPrevious;
+    [SerializeField] private AudioSource clickSound;
 
     private int indexCurrentSail;
 
@@ -22,6 +23,9 @@ public class ChangeTeamUI : MonoBehaviour
 
         buttonNext.onClick.AddListener(() => Next());
         buttonPrevious.onClick.AddListener(() => Previous());
+        buttonNext.onClick.AddListener(() => AudioSource.Instantiate(clickSound));
+        buttonPrevious.onClick.AddListener(() => AudioSource.Instantiate(clickSound));
+        
 
         allSails = Resources.LoadAll<ShipStruct>("ScriptableObjects/Sail");
         indexCurrentSail = 0;

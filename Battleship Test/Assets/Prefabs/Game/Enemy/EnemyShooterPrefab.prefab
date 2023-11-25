@@ -111,6 +111,10 @@ PrefabInstance:
       propertyPath: poolCount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7332720571145237191, guid: d350fa72de0344e45a019530edfd20c4, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 1733190490737984036, guid: b3c6fdf5e81b7c84d997c60d8644f84f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2646047553633450579, guid: d350fa72de0344e45a019530edfd20c4, type: 3}

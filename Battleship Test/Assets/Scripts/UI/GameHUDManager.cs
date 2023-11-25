@@ -20,6 +20,7 @@ public class GameHUDManager : MonoBehaviour
     [SerializeField] private Button buttonPlayAgain;
     [SerializeField] private Button buttonMainMenu;
     [SerializeField] private Button buttonStart;
+    [SerializeField] private AudioSource clickSound;
 
     [Space(10), Header("UI Texts")]
     [SerializeField] private TMP_Text textSessionTimer;
@@ -28,6 +29,7 @@ public class GameHUDManager : MonoBehaviour
   
     [SerializeField] private string textLabelEndScore;
     [SerializeField] private string textLabelScoreInGame;
+    
 
     private bool gameOn;
     private float currentGameTimeToEnd;
@@ -42,6 +44,10 @@ public class GameHUDManager : MonoBehaviour
         buttonStart.onClick.AddListener(() => panelTutorial.SetActive(false));
         buttonPlayAgain.onClick.AddListener(() => fadeManager.TransitionNextScreen("Game"));
         buttonMainMenu.onClick.AddListener(() => fadeManager.TransitionNextScreen("MainMenu"));
+        buttonStart.onClick.AddListener(() => AudioSource.Instantiate(clickSound));
+        buttonStart.onClick.AddListener(() => AudioSource.Instantiate(clickSound));
+        buttonPlayAgain.onClick.AddListener(() => AudioSource.Instantiate(clickSound));
+        buttonMainMenu.onClick.AddListener(() => AudioSource.Instantiate(clickSound));
     }
     public void Initialize()
     {
