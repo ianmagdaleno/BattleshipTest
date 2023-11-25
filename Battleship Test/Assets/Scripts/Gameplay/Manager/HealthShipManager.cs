@@ -52,11 +52,12 @@ public class HealthShipManager : MonoBehaviour
             }
             else
             {
-                DataManager.AddCurrentScore(1);
+                gameplayManager.PlayerScoreAdd();
                 Destroy(transform.parent.gameObject,0.4f);
             }
         }
     }
+  
     public void UpdateStats()
     {
         healthSlider.value = currentHealth;

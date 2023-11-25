@@ -27,6 +27,11 @@ public class GameplayManager : MonoBehaviour
         playerComponentsManager.ChangeTeamSail(changeTeamObject.GetTeamChoice());
         spawnerEnemies.Initialize();
     }
+    public void PlayerScoreAdd()
+    {
+        DataManager.AddCurrentScore(1);
+        uiManager.UpdateScore();
+    }
     public void GameOver()
     {
         gameplayOn = false;

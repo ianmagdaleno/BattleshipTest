@@ -60,20 +60,21 @@ public class GameHUDManager : MonoBehaviour
     private void GameOverScreen()
     {
         panelGameOver.SetActive(true);
+        UpdateScore();
     }
     private void LoadScene(string nameScene)
     {
         SceneManager.LoadScene(nameScene);
     }
-    public void UpdateScore(int newScore)
+    public void UpdateScore()
     {
         if (gameplayManager.GetGameStatus())
         {
-            textScoreInGame.text = $"{textLabelScoreInGame} {newScore}";
+            textScoreInGame.text = $"{textLabelScoreInGame} {DataManager.GetScore()}";
         }
         else
         {
-            textEndScore.text = $"{textLabelEndScore} {newScore}";
+            textEndScore.text = $"{textLabelEndScore} {DataManager.GetScore()}";
         }
     }
     public void UpdateGameState(bool gameStatus)
